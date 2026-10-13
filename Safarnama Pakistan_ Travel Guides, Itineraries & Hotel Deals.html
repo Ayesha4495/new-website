@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Safarnama Pakistan: travel guides, itineraries and hotel comparisons</title>
+<meta name="description" content="Destination guides, itineraries, hotel comparisons and travel tips for 90 places across Pakistan, from K2 to the Arabian Sea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10242B; --ink2:#3C5760; --paper:#F6FAFA; --card:#FFFFFF; --line:#D3E1E3; --glacier:#E1EEEF;
+  --accent:#0E6A70; --accent-ink:#FFFFFF; --apricot:#EE9B1F; --apricot-ink:#2A1A00; --rose:#C72C54;
+  --gb:#3A7CA5; --kp:#4C7A4F; --pb:#C98A1E; --sd:#1E8C8C; --bl:#9C4A2F; --ak:#7A5BA6; --is:#5B6B77;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --urdu:"Noto Nastaliq Urdu","Jameel Noori Nastaleeq",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7F1F2; --ink2:#9FB8BD; --paper:#0A181D; --card:#11262D; --line:#223F48; --glacier:#173038;
+    --accent:#62C7CC; --accent-ink:#06191C;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7F1F2; --ink2:#9FB8BD; --paper:#0A181D; --card:#11262D; --line:#223F48; --glacier:#173038;
+  --accent:#62C7CC; --accent-ink:#06191C;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+:focus-visible{outline:3px solid var(--apricot);outline-offset:2px;border-radius:4px}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--apricot);color:var(--apricot-ink);padding:.6rem 1rem;z-index:100}
+.skip:focus{left:.5rem}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(10,36,43,.94);backdrop-filter:blur(8px);color:#EAF4F5;border-bottom:1px solid rgba(255,255,255,.08)}
+.site-head .wrap{display:flex;align-items:center;gap:1.25rem;min-height:64px}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;color:#fff;font:800 1.35rem var(--display)}
+.brand small{font:500 1rem var(--urdu);color:var(--apricot)}
+.nav{display:flex;gap:1.1rem;margin-left:auto;align-items:center;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:#CFE3E5;text-decoration:none;font-weight:500;font-size:.95rem;white-space:nowrap}
+.nav a:hover{color:#fff}
+.trip-btn{background:var(--apricot);color:var(--apricot-ink);border:0;border-radius:999px;padding:.5rem 1rem;font:600 .9rem var(--body);cursor:pointer;white-space:nowrap}
+
+/* hero */
+.hero{background:#0C2A31;color:#EAF4F5;position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2;padding:clamp(3rem,8vw,6rem) 0 clamp(8rem,20vw,15rem)}
+.hero h1{font-size:clamp(2.6rem,7.5vw,5.8rem);font-weight:800;max-width:14ch}
+.hero p.lead{max-width:52ch;font-size:1.2rem;color:#B9D3D6;margin:1.2rem 0 1.8rem}
+.hero-search{display:flex;gap:.5rem;max-width:560px}
+.hero-search input{flex:1;min-width:0;padding:.9rem 1.1rem;border-radius:12px;border:2px solid transparent;background:#F6FAFA;color:#10242B;font:500 1.05rem var(--body)}
+.hero-search button{padding:.9rem 1.3rem;border-radius:12px;border:0;background:var(--apricot);color:var(--apricot-ink);font:700 1rem var(--body);cursor:pointer}
+.hero-stats{display:flex;flex-wrap:wrap;gap:.5rem 1.8rem;margin-top:1.6rem;color:#B9D3D6;font-size:.98rem}
+.hero-stats b{color:#fff;font-family:var(--display);font-size:1.25rem}
+.ridge{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;z-index:1;display:block}
+.ridge .l1{animation:rise 1.2s ease-out both}
+.ridge .l2{animation:rise 1.2s .15s ease-out both}
+.ridge .l3{animation:rise 1.2s .3s ease-out both}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.ridge *{animation:none!important}html{scroll-behavior:auto}}
+.ridge text{font:600 13px var(--body);fill:#EAF4F5}
+.ridge .sub{font-weight:500;fill:#9EC0C4;font-size:11px}
+
+/* sections */
+section{padding:clamp(3rem,6vw,5rem) 0}
+.sec-head{max-width:62ch;margin-bottom:2rem}
+.sec-head h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.6rem}
+.sec-head p{color:var(--ink2)}
+.alt{background:var(--glacier)}
+.ad{border:1.5px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink2);font-size:.85rem;min-height:90px;text-align:center;padding:.5rem;margin:0 auto;background:var(--card)}
+.ad.big{min-height:250px;max-width:340px}
+.ad-wrap{padding:1.2rem 0}
+
+/* explorer */
+.filters{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:1.2rem}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:.45rem .95rem;border-radius:999px;font:500 .95rem var(--body);cursor:pointer;display:inline-flex;align-items:center;gap:.45rem}
+.chip i{width:.65rem;height:.65rem;border-radius:50%;display:inline-block}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.filters select,.filters input[type=search]{padding:.5rem .8rem;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:500 .95rem var(--body)}
+.count{color:var(--ink2);font-size:.95rem;margin:0 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem}
+.dest{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rc,var(--accent));border-radius:6px 14px 14px 6px;padding:1rem 1.1rem 1rem;display:flex;flex-direction:column;gap:.5rem}
+.dest h3{font-size:1.2rem}
+.dest .meta{font-size:.85rem;color:var(--ink2);display:flex;flex-wrap:wrap;gap:.2rem .8rem}
+.dest .meta b{color:var(--rc,var(--accent));font-weight:600}
+.dest p{font-size:.95rem;color:var(--ink2);margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.dest .row{display:flex;gap:.5rem;margin-top:auto;padding-top:.4rem}
+.btn{border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:.45rem .9rem;border-radius:9px;font:600 .9rem var(--body);cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.pri{background:var(--apricot);border-color:var(--apricot);color:var(--apricot-ink)}
+.btn.pri:hover{filter:brightness(1.07);background:var(--apricot);color:var(--apricot-ink)}
+.btn.saved{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.empty{padding:2rem;border:1.5px dashed var(--line);border-radius:12px;text-align:center;color:var(--ink2)}
+
+/* dialog */
+dialog{border:0;border-radius:18px;padding:0;max-width:min(640px,94vw);width:100%;background:var(--card);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(5,20,25,.6)}
+.dlg{padding:1.6rem 1.6rem 1.4rem;border-top:8px solid var(--rc,var(--accent))}
+.dlg h3{font-size:1.9rem;margin-bottom:.4rem}
+.dlg .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 1rem}
+.tag{background:var(--glacier);color:var(--ink);padding:.2rem .65rem;border-radius:6px;font-size:.85rem;font-weight:500}
+.dlg .acts{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .6rem}
+.dlg .near a{display:inline-block;margin:.15rem .5rem .15rem 0}
+.fine{font-size:.82rem;color:var(--ink2)}
+.x{float:right;background:none;border:0;font-size:1.6rem;line-height:1;cursor:pointer;color:var(--ink2)}
+.tripList{list-style:none;padding:0;margin:1rem 0}
+.tripList li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+
+/* itineraries */
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.4rem}
+.tab{border:1.5px solid var(--ink);background:transparent;color:var(--ink);border-radius:10px;padding:.55rem 1rem;font:600 .95rem var(--body);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.itin{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:2rem;align-items:start}
+.itin h3{font-size:1.7rem;margin-bottom:.4rem}
+.days{list-style:none;margin:1.2rem 0 0;padding:0 0 0 1.4rem;border-left:3px solid var(--apricot)}
+.days li{position:relative;padding:0 0 1.1rem 1rem}
+.days li::before{content:"";position:absolute;left:-1.95rem;top:.45rem;width:.85rem;height:.85rem;border-radius:50%;background:var(--paper);border:3px solid var(--apricot)}
+.days b{font-family:var(--display);font-size:1.05rem}
+.facts{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem}
+.facts dl{margin:0}.facts dt{font-weight:600;font-size:.85rem;color:var(--ink2);margin-top:.7rem}.facts dd{margin:0}
+@media (max-width:820px){.itin{grid-template-columns:1fr}}
+
+/* tables */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.95rem}
+th,td{text-align:left;padding:.8rem 1rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 .95rem var(--display);background:var(--glacier)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+@media (max-width:820px){.calc{grid-template-columns:1fr}}
+.field{margin-bottom:1rem}
+.field label{display:block;font-weight:600;margin-bottom:.3rem}
+.field input,.field select{width:100%;padding:.65rem .8rem;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:500 1rem var(--body)}
+.result{background:#0C2A31;color:#EAF4F5;border-radius:16px;padding:1.6rem}
+.result .big{font:800 clamp(2rem,5vw,3rem) var(--display);color:var(--apricot)}
+.result p{color:#B9D3D6;margin:.3rem 0}
+
+/* seasons */
+.seasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.season{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem}
+.season h3{font-size:1.3rem}
+.season .when{color:var(--ink2);font-size:.9rem;margin-bottom:.7rem}
+.season ul{margin:0;padding-left:1.1rem}
+.season li{margin:.2rem 0;font-size:.95rem}
+
+/* deals */
+.deals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.deal{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.deal h3{font-size:1.2rem}
+.deal p{color:var(--ink2);font-size:.95rem;margin:0}
+.deal .btn{margin-top:auto;align-self:flex-start}
+.sponsored{border:2px solid var(--apricot);border-radius:16px;padding:1.4rem;background:var(--card);display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center}
+.badge{display:inline-block;background:var(--apricot);color:var(--apricot-ink);font-weight:700;font-size:.78rem;border-radius:6px;padding:.15rem .5rem;margin-bottom:.4rem}
+@media (max-width:700px){.sponsored{grid-template-columns:1fr}}
+
+/* tips */
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.2rem 1.1rem;margin-bottom:.6rem}
+summary{cursor:pointer;font:600 1.08rem var(--display);padding:.8rem 0}
+details p,details ul{color:var(--ink2);font-size:.98rem}
+details ul{padding-left:1.2rem;margin-top:0}
+
+/* newsletter + footer */
+.news{background:#0C2A31;color:#EAF4F5}
+.news .sec-head p{color:#B9D3D6}
+.news .row{display:flex;gap:.5rem;max-width:520px;flex-wrap:wrap}
+.news input{flex:1;min-width:200px;padding:.85rem 1rem;border-radius:10px;border:0;font:500 1rem var(--body)}
+.news .msg{margin-top:.8rem;color:var(--apricot);min-height:1.5em}
+footer{background:#071B20;color:#9EBDC2;padding:2.5rem 0;font-size:.92rem}
+footer a{color:#CFE3E5}
+footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+footer h4{font:700 1rem var(--display);color:#fff;margin:0 0 .6rem}
+footer ul{list-style:none;padding:0;margin:0}footer li{margin:.3rem 0}
+</style>
+</head>
+<body>
+<a class="skip" href="#explore">Skip to destinations</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">Safarnama <small>سفرنامہ</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#explore">Destinations</a>
+      <a href="#itineraries">Itineraries</a>
+      <a href="#hotels">Hotels</a>
+      <a href="#budget">Budget</a>
+      <a href="#seasons">When to go</a>
+      <a href="#deals">Deals</a>
+      <a href="#tips">Tips</a>
+      <button class="trip-btn" id="openTrip" type="button">My trip (<span id="tripCount">0</span>)</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <h1>From K2 to the Arabian Sea.</h1>
+    <p class="lead">Destination guides, ready-made itineraries and honest hotel comparisons for every region of Pakistan, from Hunza and Swat to Lahore, Thatta and the Makran coast.</p>
+    <div class="hero-search" role="search">
+      <input id="heroQ" type="search" placeholder="Search a place: Hunza, Mohenjo-daro, Neelum…" aria-label="Search destinations">
+      <button type="button" id="heroGo">Find places</button>
+    </div>
+    <div class="hero-stats" id="stats"></div>
+  </div>
+  <svg class="ridge" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle cx="1060" cy="90" r="34" fill="#EE9B1F" opacity=".9"/>
+    <g class="l1"><polygon fill="#1B4A55" points="0,300 70,250 150,210 230,127 300,190 330,200 400,150 470,87 540,170 620,215 700,119 770,190 830,160 930,40 1010,150 1100,220 1200,260 1200,360 0,360"/></g>
+    <g class="l2"><polygon fill="#13373F" points="0,330 90,285 190,300 280,250 380,290 480,230 590,285 690,245 800,290 900,225 1000,280 1100,255 1200,290 1200,360 0,360"/></g>
+    <g class="l3"><polygon fill="#0A2429" points="0,350 120,322 240,342 380,318 520,345 680,325 820,348 980,322 1100,340 1200,330 1200,360 0,360"/></g>
+    <g>
+      <line x1="230" y1="100" x2="230" y2="122" stroke="#9EC0C4"/><text x="230" y="84" text-anchor="middle">Tirich Mir</text><text class="sub" x="230" y="98" text-anchor="middle">7,708 m</text>
+      <line x1="470" y1="60" x2="470" y2="82" stroke="#9EC0C4"/><text x="470" y="44" text-anchor="middle">Nanga Parbat</text><text class="sub" x="470" y="58" text-anchor="middle">8,126 m</text>
+      <line x1="700" y1="92" x2="700" y2="114" stroke="#9EC0C4"/><text x="700" y="76" text-anchor="middle">Rakaposhi</text><text class="sub" x="700" y="90" text-anchor="middle">7,788 m</text>
+      <line x1="930" y1="14" x2="930" y2="36" stroke="#9EC0C4"/><text x="930" y="-2" text-anchor="middle">K2</text><text class="sub" x="930" y="12" text-anchor="middle">8,611 m</text>
+    </g>
+  </svg>
+</div>
+
+<!-- EXPLORER -->
+<section id="explore">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Every region, every kind of trip</h2>
+      <p>Pick a region, narrow by type of place, then save what you like to build your own trip list. Best seasons are given for typical conditions; always check road and weather updates before you leave.</p>
+    </div>
+    <div class="filters" id="regionChips" role="group" aria-label="Filter by region"></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search by name or keyword" aria-label="Search destinations">
+      <select id="cat" aria-label="Filter by type"><option value="">All types</option></select>
+      <select id="sort" aria-label="Sort">
+        <option value="region">Sort by region</option>
+        <option value="az">Sort A to Z</option>
+        <option value="days">Shortest visit first</option>
+      </select>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<div class="wrap ad-wrap">
+  <!-- Replace this block with your AdSense / ad network code -->
+  <aside class="ad" aria-label="Advertisement">Advertisement · 728×90 leaderboard (paste ad network code here)</aside>
+</div>
+
+<!-- ITINERARIES -->
+<section id="itineraries" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Itineraries you can copy</h2>
+      <p>Day-by-day plans that respect real driving times. Road conditions and flight cancellations in the north are common, so keep a spare day.</p>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="itin" id="itin"></div>
+  </div>
+</section>
+
+<!-- HOTELS -->
+<section id="hotels">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Hotel comparison by region</h2>
+      <p>Indicative double-room prices per night in PKR. Rates rise sharply in peak season (June to August in the north, Eid holidays everywhere), so treat these as planning ranges and check live prices before booking.</p>
+    </div>
+    <div class="scroll" tabindex="0" aria-label="Hotel price comparison table">
+      <table>
+        <thead><tr><th>Region</th><th>Budget</th><th>Mid-range</th><th>Luxury</th><th>What to expect</th><th>Check rates</th></tr></thead>
+        <tbody id="hotelRows"></tbody>
+      </table>
+    </div>
+    <p class="fine" style="margin-top:.8rem">Some links on this page are affiliate links. If you book through them we may earn a commission at no extra cost to you. It never changes which places we recommend.</p>
+
+    <div class="two" style="margin-top:2.5rem">
+      <div>
+        <h3 style="font-size:1.5rem;margin-bottom:.8rem">Which kind of stay suits you?</h3>
+        <div class="scroll"><table style="min-width:0">
+          <thead><tr><th>Type</th><th>Best for</th><th>Watch out for</th></tr></thead>
+          <tbody>
+            <tr><td>Family guesthouse</td><td>Local food, mountain views, low cost</td><td>Hot water and power can be limited</td></tr>
+            <tr><td>Hotel or resort</td><td>Comfort, bookings in advance, groups</td><td>Peak-season price jumps</td></tr>
+            <tr><td>Heritage hotel</td><td>Forts and palaces in Hunza, Shigar, Khaplu, Lahore</td><td>Few rooms, book months ahead</td></tr>
+            <tr><td>Camping or huts</td><td>Fairy Meadows, Deosai, Kumrat</td><td>Cold nights even in July</td></tr>
+            <tr><td>Homestay</td><td>Kalash, Hunza and Neelum village life</td><td>Basic facilities, respect house rules</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem;margin-bottom:.8rem">Names worth searching</h3>
+        <p style="color:var(--ink2)">Serena Hotels run heritage and boutique properties in Gilgit, Hunza, Shigar, Khaplu, Swat, Islamabad and Quetta. Pearl-Continental has hotels in Lahore, Karachi, Peshawar, Rawalpindi, Bhurban and Gwadar. PTDC motels exist at many tourist spots and are usually the cheapest official option, though standards vary. In the north, family-run hotels often beat chains on views and food.</p>
+        <aside class="ad big" aria-label="Advertisement">Advertisement · 300×250</aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Trip budget estimator</h2>
+      <p>A rough planning figure for stay, food, local transport and a small buffer. Use it to compare styles of travel, then confirm with real quotes.</p>
+    </div>
+    <div class="calc">
+      <div>
+        <div class="field"><label for="bTrav">Travellers</label><input id="bTrav" type="number" min="1" max="20" value="4"></div>
+        <div class="field"><label for="bDays">Days on the road</label><input id="bDays" type="number" min="1" max="40" value="7"></div>
+        <div class="field"><label for="bStyle">Travel style</label>
+          <select id="bStyle">
+            <option value="5000">Budget (guesthouse, local food)</option>
+            <option value="14000" selected>Mid-range (hotel, restaurants)</option>
+            <option value="35000">Comfort (resort or heritage hotel)</option>
+          </select></div>
+        <div class="field"><label for="bTrans">Transport</label>
+          <select id="bTrans">
+            <option value="pub">Buses and shared vans</option>
+            <option value="car" selected>Private car with driver</option>
+            <option value="suv">Private 4x4 or SUV with driver</option>
+          </select></div>
+      </div>
+      <div class="result" aria-live="polite">
+        <p>Estimated total for the group</p>
+        <div class="big" id="bTotal">PKR 0</div>
+        <p id="bPer"></p>
+        <p class="fine" style="color:#9EC0C4">Assumes about PKR 2,500 per person per day on buses, PKR 12,000 per car per day, and PKR 22,000 per 4x4 per day, plus 10% buffer. Real prices vary by season and route.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEASONS -->
+<section id="seasons">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>When to go</h2>
+      <p>Pakistan has Himalayan summers, desert winters and a tropical coast, so the best season depends on where you are headed.</p>
+    </div>
+    <div class="seasons">
+      <div class="season"><h3>Spring</h3><div class="when">March to May</div><ul><li>Hunza and Skardu apricot blossom (April)</li><li>Swat and Galiyat</li><li>Lahore and Islamabad gardens</li><li>Kalash Chilam Joshi festival (mid-May)</li></ul></div>
+      <div class="season"><h3>Summer</h3><div class="when">June to August</div><ul><li>Deosai, Fairy Meadows, Naran and Kaghan</li><li>Neelum Valley and Ratti Gali</li><li>Shandur polo festival (early July)</li><li>Avoid the plains and Sindh coast heat</li></ul></div>
+      <div class="season"><h3>Autumn</h3><div class="when">September to November</div><ul><li>Hunza golden foliage (October)</li><li>Kalash Uchau festival</li><li>Lahore, Multan, Peshawar heritage trips begin</li><li>Clear skies for K2 and Nanga Parbat views</li></ul></div>
+      <div class="season"><h3>Winter</h3><div class="when">December to February</div><ul><li>Karachi, Thatta, Mohenjo-daro</li><li>Cholistan desert and jeep rally</li><li>Makran coast and Hingol</li><li>Snow at Murree, Malam Jabba and Ziarat</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEALS -->
+<section id="deals" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Book your trip</h2>
+      <p>Tools we use ourselves to compare prices. Links marked as partners may earn us a commission.</p>
+    </div>
+    <div class="deals">
+      <div class="deal"><h3>Hotels and guesthouses</h3><p>Compare stays in Hunza, Skardu, Swat, Lahore and Karachi with free cancellation filters.</p><a class="btn pri" rel="sponsored noopener" target="_blank" href="https://www.booking.com/country/pk.html" data-affiliate="booking">Search on Booking.com</a></div>
+      <div class="deal"><h3>Domestic flights</h3><p>Islamabad to Skardu and Gilgit flights depend on weather. Compare fares and keep dates flexible.</p><a class="btn pri" rel="sponsored noopener" target="_blank" href="https://www.skyscanner.net/" data-affiliate="skyscanner">Compare on Skyscanner</a></div>
+      <div class="deal"><h3>Tours and experiences</h3><p>Guided heritage walks, food tours and day trips from Lahore, Karachi and Islamabad.</p><a class="btn pri" rel="sponsored noopener" target="_blank" href="https://www.getyourguide.com/" data-affiliate="gyg">Browse on GetYourGuide</a></div>
+      <div class="deal"><h3>Travel insurance</h3><p>Essential for high-altitude trekking and remote roads. Check cover for evacuation and altitude.</p><a class="btn pri" rel="sponsored noopener" target="_blank" href="https://www.worldnomads.com/" data-affiliate="insurance">Get a quote</a></div>
+    </div>
+    <div style="margin-top:1.6rem" class="sponsored">
+      <div>
+        <span class="badge">Sponsored</span>
+        <h3 style="font-size:1.4rem">Your hotel, tour company or airline here</h3>
+        <p style="margin:.3rem 0 0;color:var(--ink2)">Reach readers who are actively planning trips to Pakistan. Sponsored guides, featured listings and newsletter placements are always labelled.</p>
+      </div>
+      <a class="btn pri" href="mailto:hello@example.com?subject=Advertising%20on%20Safarnama">Advertise with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section id="tips">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Practical travel tips</h2>
+      <p>The things first-time visitors ask most. Rules and conditions change, so confirm anything official with your tour operator or the relevant authority.</p>
+    </div>
+    <details open><summary>Roads, transport and timing</summary>
+      <ul><li>The Karakoram Highway from Islamabad to Hunza takes two days at a comfortable pace; landslides can close sections, especially in July and August.</li><li>Flights to Skardu and Gilgit are weather-dependent and often cancelled. Keep a buffer day or have a road backup.</li><li>Start early. Mountain roads are slower than the distance suggests and night driving is best avoided.</li></ul></details>
+    <details><summary>Safety, permits and local rules</summary>
+      <ul><li>Check current government travel advisories and local news before you go. Conditions vary by district and can change quickly.</li><li>Some border and high-altitude areas need permits or a registered operator, particularly for foreign visitors and trekking. Confirm current requirements before booking.</li><li>Tell your hotel or a contact where you are going when you head into remote valleys.</li></ul></details>
+    <details><summary>Altitude and health</summary>
+      <ul><li>Places like Deosai, Babusar, Khunjerab and Fairy Meadows are high. Ascend gradually, drink water and rest if you get headaches or nausea.</li><li>Pack a basic medical kit. Pharmacies are limited above Chilas and Skardu.</li><li>Choose bottled or boiled water and freshly cooked food.</li></ul></details>
+    <details><summary>Money and connectivity</summary>
+      <ul><li>Carry enough cash in PKR for the north. ATMs are scarce and can be offline above the main towns.</li><li>Jazz, Zong and Ufone work in many towns; SCOM is usually the dependable network in Gilgit-Baltistan and Azad Kashmir. Expect no signal in many valleys.</li><li>Download offline maps before leaving the cities.</li></ul></details>
+    <details><summary>Culture and dress</summary>
+      <ul><li>Dress modestly, especially outside big cities. Light, loose clothing that covers shoulders and knees works well; carry a scarf for visiting shrines and mosques.</li><li>Ask before photographing people, particularly women, and always in Kalash villages where there are specific rules.</li><li>Remove shoes at mosques, shrines and many homes.</li></ul></details>
+    <details><summary>Responsible travel</summary>
+      <ul><li>Take your waste with you from lakes, meadows and trekking routes; carry a bag for it.</li><li>Hire local guides and stay in locally owned guesthouses so income stays in the community.</li><li>Do not climb on or deface heritage sites such as forts, tombs and Buddhist stupas.</li></ul></details>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="news" id="newsletter">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Get new guides and deals by email</h2>
+      <p>One email a week with seasonal trip ideas, road and weather updates and the best hotel offers we find.</p>
+    </div>
+    <div class="row">
+      <input id="email" type="email" placeholder="Your email address" aria-label="Email address">
+      <button class="btn pri" id="subscribe" type="button">Subscribe</button>
+    </div>
+    <div class="msg" id="newsMsg" aria-live="polite"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>Safarnama Pakistan</h4><p>Independent travel guides for Pakistan. Prices, dates and conditions change; verify before you travel.</p></div>
+      <div><h4>Explore</h4><ul><li><a href="#explore">Destinations</a></li><li><a href="#itineraries">Itineraries</a></li><li><a href="#hotels">Hotels</a></li><li><a href="#tips">Travel tips</a></li></ul></div>
+      <div><h4>How we earn</h4><p>We earn commissions from some booking links, display advertising and clearly labelled sponsored content. Editorial recommendations are not for sale.</p></div>
+    </div>
+    <p style="margin-top:1.5rem">© 2026 Safarnama Pakistan</p>
+  </div>
+</footer>
+
+<!-- Place dialog -->
+<dialog id="dlg" aria-labelledby="dlgTitle"><div class="dlg" id="dlgBody"></div></dialog>
+<!-- Trip dialog -->
+<dialog id="tripDlg" aria-labelledby="tripTitle"><div class="dlg" id="tripBody"></div></dialog>
+
+<script>
+/* ---------- DATA: Name|Region|Type|Best season|Days|Description ---------- */
+var RAW = [
+"Hunza Valley|GB|Valleys|Apr–Oct|3–4|Karimabad with Baltit and Altit forts, terraced apricot orchards and views of Rakaposhi and Ultar Sar. Blossom in April, gold in October.",
+"Eagle's Nest (Duikar)|GB|Valleys|Apr–Oct|1|The classic sunrise and sunset viewpoint above Karimabad, looking over Hunza's peaks.",
+"Attabad Lake|GB|Lakes|Apr–Oct|1|Turquoise lake created by a 2010 landslide on the Karakoram Highway. Boat rides and the tunnels beyond it.",
+"Passu Cones and Gulmit|GB|Mountains|May–Oct|1–2|Jagged Passu Cones, Passu Glacier and the Hussaini suspension bridge near Gulmit.",
+"Khunjerab Pass|GB|Adventure|May–Nov|1|At 4,693 m, one of the highest paved border crossings in the world, on the road to China. Access is seasonal.",
+"Rakaposhi Viewpoint|GB|Mountains|Apr–Oct|1|A roadside stop on the Karakoram Highway with a clear view of 7,788 m Rakaposhi.",
+"Rush Lake|GB|Adventure|Jul–Sep|3|Trek from Nagar to a lake at roughly 4,700 m, among the highest in the country.",
+"Gilgit and Kargah Buddha|GB|Cities|Apr–Oct|1|The regional capital, with a 7th-century Buddha carved into the rock at Kargah Nala.",
+"Naltar Valley|GB|Valleys|Jun–Oct|2|Colourful lakes, pine forest and a small ski area, reached by a rough jeep road from Gilgit.",
+"Phander Valley|GB|Lakes|May–Oct|1–2|A quiet valley in Ghizer with a trout stream and the emerald Phander Lake.",
+"Shandur Pass|GB|Adventure|Jul|1–2|A 3,700 m pass between Chitral and Gilgit, famous for the annual polo festival, usually in early July.",
+"Skardu|GB|Cities|Apr–Oct|3|Gateway to Baltistan, set on the Indus. Base for Deosai, Shigar, Khaplu and K2 expeditions.",
+"Shangrila (Lower Kachura) Lake|GB|Lakes|Apr–Oct|1|Lakeside resort near Skardu, with Upper Kachura Lake a short drive away.",
+"Katpana Cold Desert|GB|Desert|Mar–Oct|1|High-altitude sand dunes near Skardu airport, beautiful at sunset.",
+"Deosai National Park|GB|Mountains|Jun–Sep|1–2|The Land of Giants: a plateau at about 4,100 m with wildflowers, Himalayan brown bears and Sheosar Lake. Snowbound outside summer.",
+"Shigar Valley and Fort|GB|Heritage|Apr–Oct|1–2|A 17th-century fort restored as a heritage hotel, and the road to Askole and the Baltoro Glacier.",
+"Khaplu Valley|GB|Heritage|Apr–Oct|2|Khaplu Palace, the 14th-century Chaqchan Mosque and views of the Saltoro range.",
+"Hushe Valley|GB|Mountains|Jun–Sep|2–3|A village at the foot of Masherbrum with views of Laila Peak. Base for treks in the Karakoram.",
+"Basho Valley|GB|Valleys|Jun–Sep|2|A remote valley near Skardu with wild meadows and small villages.",
+"Fairy Meadows|GB|Adventure|Jun–Sep|2–3|A jeep track then a trek leads to green meadows facing Nanga Parbat. Cabins and camping only.",
+"Nanga Parbat Base Camp (Beyal)|GB|Adventure|Jun–Sep|2|A further trek beyond Fairy Meadows to Beyal camp, close to the Raikot face of the 8,126 m mountain.",
+"Astore and Rama|GB|Valleys|Jun–Sep|2|Rama Meadows and Rama Lake, with views of Nanga Parbat from the Astore side.",
+"K2 Base Camp and Baltoro trek|GB|Adventure|Jun–Aug|18–21|The great Karakoram trek from Askole to Concordia and K2 Base Camp. Needs a permit and a licensed operator.",
+"Swat Valley|KP|Valleys|Mar–Oct|3–4|The Swat River, Buddhist ruins, Fizagat and Madyan. Often called the Switzerland of Pakistan.",
+"Malam Jabba|KP|Hill stations|Dec–Mar|1|Pakistan's best known ski resort in winter, with a chairlift and forest views in summer.",
+"Kalam and Ushu Forest|KP|Valleys|May–Sep|2|Upper Swat's alpine town with deodar forests along the Ushu and Utror rivers.",
+"Mahodand Lake|KP|Lakes|Jun–Sep|1|A glacial lake above Kalam, reached by a rough jeep road through meadows.",
+"Naran and Kaghan Valley|KP|Valleys|Jun–Sep|3–4|Pine forests along the Kunhar River. Base for Saif ul Malook and the Babusar road.",
+"Lake Saif ul Malook|KP|Lakes|Jun–Sep|1|A 3,200 m lake near Naran under Malika Parbat, linked to a famous folk legend. Jeep from Naran.",
+"Lulusar Lake and Dudipatsar|KP|Lakes|Jun–Sep|2|Lulusar Lake lies on the road to Babusar. Dudipatsar is a high lake reached by a trek.",
+"Babusar Top|KP|Mountains|Jun–Sep|1|A 4,173 m pass connecting Kaghan with Chilas on the Karakoram Highway.",
+"Shogran and Siri Paye|KP|Hill stations|May–Sep|1–2|A jeep ride up from Kiwai to Siri meadow and Paye, with views of Makra Peak.",
+"Nathia Gali and Ayubia|KP|Hill stations|Apr–Oct|1–2|Galiyat pine hill stations with short hikes, a chairlift and cool summers close to Islamabad.",
+"Thandiani|KP|Hill stations|Apr–Oct|1|A cool hill station above Abbottabad with long views on clear days.",
+"Kumrat Valley|KP|Valleys|May–Oct|2|Upper Dir's deodar forests and the Panjkora River, with the Jahaz Banda trek above.",
+"Jahaz Banda|KP|Adventure|Jun–Sep|1–2|A high meadow trek above Kumrat with views over the Hindu Kush foothills.",
+"Chitral Valley|KP|Cities|Apr–Oct|3|Chitral Fort, Shahi Mosque and views of Tirich Mir, the Hindu Kush's highest peak.",
+"Kalash Valleys (Bumburet, Rumbur, Birir)|KP|Culture|May, Aug–Oct|2–3|Home of the Kalasha people with their own religion and festivals: Chilam Joshi in May and Uchau in autumn. Follow photography etiquette.",
+"Peshawar Old City|KP|Heritage|Oct–Mar|1–2|Qissa Khwani Bazaar, Mahabat Khan Mosque, Sethi Houses and the Peshawar Museum's Gandhara collection.",
+"Khyber Pass|KP|Heritage|Oct–Mar|1|The historic route to Afghanistan. Check current access rules for visitors before planning.",
+"Takht-i-Bahi|KP|Heritage|Oct–Mar|1|A UNESCO World Heritage Buddhist monastery on a hilltop near Mardan.",
+"Lahore Walled City|PB|Heritage|Oct–Mar|2–3|Badshahi Mosque, Lahore Fort, Wazir Khan Mosque, Delhi Gate and the food streets.",
+"Shalimar Gardens|PB|Heritage|Oct–Mar|1|A UNESCO-listed Mughal garden with terraces, fountains and pavilions.",
+"Multan|PB|Spiritual|Oct–Mar|1–2|The City of Saints, with the shrines of Bahauddin Zakariya and Shah Rukn-e-Alam and famous blue pottery.",
+"Uch Sharif|PB|Spiritual|Oct–Mar|1|Glazed-tile tombs and shrines on the road from Multan to Bahawalpur.",
+"Bahawalpur and Derawar Fort|PB|Heritage|Oct–Mar|2|Noor Mahal in Bahawalpur and the huge Derawar Fort rising from the Cholistan desert.",
+"Cholistan Desert|PB|Desert|Nov–Feb|2|Dunes, forts and desert villages. The Cholistan Jeep Rally is held in February.",
+"Lal Suhanra National Park|PB|Wildlife|Oct–Mar|1|A park on the edge of the Cholistan desert with blackbuck and bird life, near Bahawalpur.",
+"Rohtas Fort|PB|Heritage|Oct–Mar|1|A UNESCO fort built by Sher Shah Suri near Jhelum, with massive gates and walls.",
+"Taxila|PB|Heritage|Oct–Mar|1|Ancient Gandhara cities, stupas and a museum, close to Islamabad.",
+"Harappa|PB|Heritage|Oct–Mar|1|A major Indus Valley Civilization city with a small museum on site.",
+"Khewra Salt Mine|PB|Heritage|Year-round|1|One of the world's largest salt mines, with tunnels, a mosque and chambers made of salt.",
+"Katas Raj|PB|Spiritual|Oct–Mar|1|A Hindu temple complex around a sacred pond in the Salt Range near Chakwal.",
+"Kallar Kahar and Soon Valley|PB|Lakes|Oct–Mar|1–2|The Salt Range lakes of Kallar Kahar, Khabeki and Uchhali, with peacocks and rocky ridges.",
+"Murree|PB|Hill stations|Year-round|1–2|The nearest hill station to Islamabad, popular for winter snow. Expect heavy traffic on weekends.",
+"Fort Munro|PB|Hill stations|Mar–Oct|1|Punjab's only hill station, in the Sulaiman Range near Dera Ghazi Khan.",
+"Nankana Sahib|PB|Spiritual|Apr, Nov|1|The birthplace of Guru Nanak and a major Sikh pilgrimage site, busy around Baisakhi and Guru Nanak's birthday.",
+"Kartarpur Corridor|PB|Spiritual|Year-round|1|The Gurdwara Darbar Sahib where Guru Nanak spent his final years, near the Indian border.",
+"Hasan Abdal (Panja Sahib)|PB|Spiritual|Year-round|1|A Sikh shrine with a sacred rock, on the road between Islamabad and Peshawar.",
+"Karachi|SD|Cities|Oct–Mar|2–3|Clifton beach, Mohatta Palace, Quaid's Mausoleum, Frere Hall and Burns Road food.",
+"Hawke's Bay and Sandspit|SD|Beaches|Oct–Mar|1|Karachi's main beaches. Green turtles nest at Hawke's Bay in the cooler months.",
+"Churna Island|SD|Beaches|Oct–Mar|1|A boat trip from the Karachi coast for snorkelling and diving.",
+"Thatta and Makli Necropolis|SD|Heritage|Oct–Mar|1|One of the world's largest necropolises, and the Shah Jahan Mosque with its tiled domes.",
+"Keenjhar Lake|SD|Lakes|Oct–Mar|1|A large freshwater lake near Thatta for boating and picnics.",
+"Ranikot Fort|SD|Heritage|Oct–Mar|1–2|Called the Great Wall of Sindh, among the largest forts in the world, in the Kirthar foothills.",
+"Mohenjo-daro|SD|Heritage|Nov–Feb|1|The UNESCO Indus Valley city of about 2500 BCE near Larkana, with its grid streets and Great Bath.",
+"Kot Diji Fort|SD|Heritage|Oct–Mar|1|A Talpur-era fort near Khairpur beside an early Indus Valley site.",
+"Sehwan Sharif|SD|Spiritual|Year-round|1|The shrine of Lal Shahbaz Qalandar, known for devotional music and the dhamal ritual, especially at the annual Urs.",
+"Kirthar National Park|SD|Wildlife|Nov–Mar|2|Rugged hills with ibex and urial, north of Karachi.",
+"Gorakh Hill|SD|Hill stations|Nov–Feb|2|Sindh's only hill station, in Dadu district, best in winter.",
+"Quetta|BL|Cities|Mar–Nov|2|A city of fruit orchards and bazaars in the Bolan hills, with nearby Hazarganji Chiltan National Park.",
+"Hanna Lake and Urak Valley|BL|Lakes|Mar–Nov|1|Hanna Lake and the apple and apricot orchards of Urak, just outside Quetta.",
+"Ziarat|BL|Hill stations|Apr–Oct|2|One of the world's oldest juniper forests and the Quaid-e-Azam Residency.",
+"Pir Ghaib|BL|Adventure|Oct–Mar|1|Waterfalls and pools in the hills near the Bolan Pass.",
+"Moola Chotok|BL|Adventure|Oct–Mar|1|A gorge and waterfall in the hills of Khuzdar district, off the main road.",
+"Hingol National Park|BL|Wildlife|Oct–Mar|2|Pakistan's largest national park, with dramatic rock formations including the Princess of Hope and the Sphinx.",
+"Kund Malir Beach|BL|Beaches|Oct–Mar|1|A long clean beach on the Makran Coastal Highway.",
+"Gwadar|BL|Cities|Oct–Mar|2|A port city on the Arabian Sea with Padi Zir beach and the Hammerhead peninsula viewpoint.",
+"Astola Island|BL|Beaches|Oct–Mar|1|Pakistan's largest offshore island, a turtle nesting site reached by boat from Pasni.",
+"Neelum Valley|AK|Valleys|Apr–Oct|3–4|Villages along the Neelum River such as Keran, Sharda, Kel and Taobat, with forest and mountain scenery.",
+"Arang Kel|AK|Adventure|May–Oct|1–2|A village on a ridge above the Neelum River, reached by a chairlift and a hike from Kel.",
+"Ratti Gali Lake|AK|Lakes|Jul–Sep|1–2|A glacial lake at about 3,500 m, reached by a trek from Dowarian.",
+"Leepa Valley|AK|Valleys|May–Oct|2|A remote valley with apple orchards, cut off by snow in winter.",
+"Banjosa Lake|AK|Lakes|Apr–Oct|1|A pine-ringed lake near Rawalakot, popular for boating.",
+"Toli Pir|AK|Hill stations|Apr–Oct|1|A forested hill station near Rawalakot with cool air and views.",
+"Muzaffarabad|AK|Cities|Year-round|1|The capital of Azad Kashmir at the meeting of the Neelum and Jhelum rivers, with the old Red Fort.",
+"Pir Chinasi|AK|Hill stations|Apr–Oct|1|A hilltop shrine and viewpoint near Muzaffarabad.",
+"Faisal Mosque|IS|Heritage|Year-round|½|Islamabad's landmark national mosque, set against the Margalla Hills.",
+"Margalla Hills Trails|IS|Adventure|Oct–Apr|½|Hiking trails 3, 5 and 6 from the city, ending at viewpoints and cafés.",
+"Daman-e-Koh and Pir Sohawa|IS|Hill stations|Year-round|½|Viewpoints above Islamabad with sweeping city views and good evening light.",
+"Saidpur Village|IS|Heritage|Year-round|½|A restored 16th-century village at the foot of the Margalla Hills with galleries and cafés.",
+"Pakistan Monument and Lok Virsa|IS|Heritage|Year-round|½|A monument shaped like a blooming flower and a museum of folk heritage next to it.",
+"Rawal Lake|IS|Lakes|Year-round|½|A lakeside park with walking paths and boating near the Margalla Hills."
+].map(function(l,i){var p=l.split("|");return{id:i,name:p[0],reg:p[1],cat:p[2],season:p[3],days:p[4],desc:p[5]}});
+
+var REG={
+ GB:{n:"Gilgit-Baltistan",c:"var(--gb)"},KP:{n:"Khyber Pakhtunkhwa",c:"var(--kp)"},PB:{n:"Punjab",c:"var(--pb)"},
+ SD:{n:"Sindh",c:"var(--sd)"},BL:{n:"Balochistan",c:"var(--bl)"},AK:{n:"Azad Kashmir",c:"var(--ak)"},IS:{n:"Islamabad",c:"var(--is)"}
+};
+var ORDER=["GB","KP","PB","SD","BL","AK","IS"];
+
+var ITIN=[
+ {t:"Hunza and Skardu",d:"10 days",who:"First-time visitors to the north",when:"May to October",
+  s:"A big loop across the Karakoram Highway and the Skardu road, best done with a private car.",
+  steps:[["Islamabad to Chilas","Long drive up the Karakoram Highway via Besham. Stay in Chilas."],["Chilas to Karimabad","Pass Nanga Parbat and Rakaposhi viewpoints and reach Hunza by evening."],["Hunza","Baltit and Altit forts, then sunset at Eagle's Nest."],["Attabad, Passu and Khunjerab","Boat across Attabad Lake, walk to Passu Cones and, if open, go to the Khunjerab Pass."],["Hunza to Skardu","Drive via Gilgit and the Indus gorge. Allow the whole day."],["Skardu","Shangrila Lake, Upper Kachura Lake and Katpana Cold Desert."],["Deosai plateau","A full day on the high plateau and Sheosar Lake."],["Shigar and Khaplu","Visit Shigar Fort, then continue to Khaplu Palace and Chaqchan Mosque."],["Return","Fly Skardu to Islamabad if the weather allows, or drive back."],["Spare day","Keep one day for weather and landslide delays."]]},
+ {t:"Swat and Kalam",d:"5 days",who:"Families and short breaks",when:"April to October",
+  s:"Green valleys and Buddhist heritage in a compact trip from Islamabad.",
+  steps:[["Islamabad to Swat","Drive by motorway and Malakand. Evening walk in Mingora or Fizagat."],["Swat heritage","Butkara Stupa, Swat Museum and the Jahanabad Buddha."],["Madyan to Kalam","Follow the river up the valley and spend the night in Kalam."],["Ushu Forest and Mahodand","Take a jeep to Mahodand Lake on a rough but scenic road."],["Return","Drive back through Swat to Islamabad."]]},
+ {t:"Naran, Saif ul Malook and Fairy Meadows",d:"7 days",who:"Adventure and photography",when:"June to September",
+  s:"Two of Pakistan's best known summer destinations in one loop.",
+  steps:[["Islamabad to Naran","About seven hours via Mansehra and Balakot."],["Saif ul Malook","Jeep up to the lake in the morning, then Lalazar or the river in the afternoon."],["Babusar and Chilas","Cross Babusar Top and descend to Chilas."],["Raikot to Fairy Meadows","Take the jeep track and trek up to the meadows."],["Beyal Camp","Hike to Beyal for a close view of Nanga Parbat."],["Descend","Trek down, then drive to Chilas or Besham."],["Return to Islamabad","Long drive back down the Karakoram Highway."]]},
+ {t:"Lahore and the Punjab heritage trail",d:"6 days",who:"History and food lovers",when:"October to March",
+  s:"Mughal monuments, saints' shrines and a desert fort.",
+  steps:[["Lahore Walled City","Badshahi Mosque, Wazir Khan Mosque, Lahore Fort and evening food street."],["Lahore gardens and museums","Shalimar Gardens, Lahore Museum and Anarkali."],["Harappa to Multan","Visit the Indus Valley site and continue to Multan."],["Multan","Shrines, bazaars and blue pottery workshops."],["Uch Sharif and Bahawalpur","Glazed-tile tombs, then Noor Mahal."],["Derawar Fort","A day trip into Cholistan to see the fort and dunes."]]},
+ {t:"Sindh heritage and Makran coast",d:"6 days",who:"Winter travellers",when:"November to February",
+  s:"Ancient cities and a dramatic coastline in the cooler months.",
+  steps:[["Karachi","Mohatta Palace, Frere Hall, Clifton and Burns Road."],["Thatta","Makli Necropolis, Shah Jahan Mosque and Keenjhar Lake."],["Mohenjo-daro","Travel north to Larkana and visit the UNESCO site."],["Return to Karachi","Fly or drive back and rest."],["Makran Coastal Highway","Drive west towards Hingol National Park."],["Hingol and Kund Malir","See the Princess of Hope and walk Kund Malir beach before returning."]]},
+ {t:"Neelum Valley",d:"4 days",who:"Quiet nature breaks",when:"May to October",
+  s:"A river valley in Azad Kashmir with forests, small lakes and village stays.",
+  steps:[["Islamabad to Muzaffarabad","Drive via Murree and Kohala, then see the Red Fort."],["Muzaffarabad to Kel","Follow the Neelum River through Keran and Sharda."],["Arang Kel","Take the chairlift and hike to the village."],["Return","Come back along the valley to Muzaffarabad or Islamabad."]]},
+ {t:"Chitral and Kalash",d:"6 days",who:"Culture and mountains",when:"May and August to October",
+  s:"Visit the Kalasha valleys and the Hindu Kush foothills.",
+  steps:[["Islamabad to Dir","Drive over Lowari Tunnel route; stay in Dir or Chitral."],["Chitral","Chitral Fort, Shahi Mosque and the old bazaar."],["Bumburet","Visit the Kalasha village, museum and crafts."],["Rumbur","Walk quiet valley paths and meet local families."],["Birir","Visit the least visited Kalasha valley."],["Return","Drive back or fly from Chitral if the weather allows."]]}
+];
+
+var HOTELS=[
+ ["Hunza (Karimabad, Altit, Passu)","4,000–8,000","12,000–25,000","40,000+","Family hotels with valley views and a few heritage-style stays.","Hunza"],
+ ["Skardu and Shigar","4,000–8,000","12,000–25,000","35,000+","Lakeside resorts and fort or palace heritage hotels.","Skardu"],
+ ["Swat and Kalam","3,000–7,000","10,000–20,000","25,000+","Riverside hotels, many with terraces. Book ahead for Eid.","Swat"],
+ ["Naran and Kaghan","3,000–7,000","10,000–22,000","25,000+","Prices spike in July and August. Many rooms are basic.","Naran"],
+ ["Fairy Meadows","3,000–8,000","10,000–20,000","None","Camping, huts and cabins only, with limited power.","Fairy Meadows"],
+ ["Chitral and Kalash","3,000–6,000","8,000–15,000","20,000+","Guesthouses and homestays in the valleys.","Chitral"],
+ ["Neelum Valley","3,000–6,000","8,000–15,000","20,000+","Riverside guesthouses and small hotels.","Neelum Valley"],
+ ["Lahore","5,000–9,000","15,000–30,000","40,000+","Haveli stays in the old city and large hotels in Gulberg.","Lahore"],
+ ["Islamabad and Murree","6,000–10,000","18,000–35,000","45,000+","City hotels and hill-station resorts such as Bhurban.","Islamabad"],
+ ["Karachi","5,000–10,000","15,000–30,000","40,000+","Business hotels near Clifton and Saddar.","Karachi"],
+ ["Makran coast and Gwadar","6,000–10,000","15,000–25,000","40,000+","Limited choice; book ahead and confirm transfers.","Gwadar"]
+];
+
+/* ---------- STATE ---------- */
+var state={reg:"all",cat:"",q:"",sort:"region"};
+var saved=[];
+try{var s=localStorage.getItem("safarnama:saved");if(s)saved=JSON.parse(s)||[]}catch(e){}
+function persist(){try{localStorage.setItem("safarnama:saved",JSON.stringify(saved))}catch(e){}}
+var $=function(id){return document.getElementById(id)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function daysNum(d){return d==="½"?0.5:parseFloat(d)}
+function daysLabel(d){return d==="½"?"Half day":d+(d==="1"?" day":" days")}
+
+/* ---------- STATS + FILTER UI ---------- */
+$("stats").innerHTML="<span><b>"+RAW.length+"</b> places</span><span><b>"+ORDER.length+"</b> regions</span><span><b>"+ITIN.length+"</b> itineraries</span>";
+var chips=$("regionChips");
+function chip(code,label,color){
+  var b=document.createElement("button");b.type="button";b.className="chip";
+  b.setAttribute("aria-pressed",code==="all"?"true":"false");b.dataset.reg=code;
+  b.innerHTML=(color?'<i style="background:'+color+'"></i>':"")+esc(label);
+  b.onclick=function(){state.reg=code;chips.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.reg===code?"true":"false")});render()};
+  chips.appendChild(b);
+}
+chip("all","All regions");
+ORDER.forEach(function(c){chip(c,REG[c].n,REG[c].c)});
+var cats=[];RAW.forEach(function(d){if(cats.indexOf(d.cat)<0)cats.push(d.cat)});cats.sort();
+cats.forEach(function(c){var o=document.createElement("option");o.value=c;o.textContent=c;$("cat").appendChild(o)});
+$("q").oninput=function(){state.q=this.value;render()};
+$("cat").onchange=function(){state.cat=this.value;render()};
+$("sort").onchange=function(){state.sort=this.value;render()};
+function heroSearch(){state.q=$("heroQ").value;$("q").value=state.q;render();$("explore").scrollIntoView()}
+$("heroGo").onclick=heroSearch;
+$("heroQ").onkeydown=function(e){if(e.key==="Enter")heroSearch()};
+
+/* ---------- EXPLORER ---------- */
+function render(){
+  var q=state.q.trim().toLowerCase();
+  var list=RAW.filter(function(d){
+    return (state.reg==="all"||d.reg===state.reg)&&(!state.cat||d.cat===state.cat)&&
+      (!q||(d.name+" "+d.desc+" "+d.cat+" "+REG[d.reg].n).toLowerCase().indexOf(q)>=0)});
+  if(state.sort==="az")list.sort(function(a,b){return a.name.localeCompare(b.name)});
+  if(state.sort==="days")list.sort(function(a,b){return daysNum(a.days)-daysNum(b.days)});
+  $("count").textContent=list.length+(list.length===1?" place":" places")+" shown";
+  var g=$("grid");
+  if(!list.length){g.innerHTML='<div class="empty">No places match. Clear the search or choose another region or type.</div>';return}
+  g.innerHTML=list.map(function(d){
+    var on=saved.indexOf(d.id)>=0;
+    return '<article class="dest" style="--rc:'+REG[d.reg].c+'"><h3>'+esc(d.name)+'</h3>'+
+      '<div class="meta"><b>'+esc(REG[d.reg].n)+'</b><span>'+esc(d.cat)+'</span><span>'+esc(d.season)+'</span><span>'+daysLabel(d.days)+'</span></div>'+
+      '<p>'+esc(d.desc)+'</p><div class="row"><button class="btn" data-open="'+d.id+'" type="button">Details</button>'+
+      '<button class="btn'+(on?" saved":"")+'" data-save="'+d.id+'" type="button" aria-pressed="'+on+'">'+(on?"Saved":"Save")+'</button></div></article>'}).join("");
+}
+$("grid").addEventListener("click",function(e){
+  var o=e.target.closest("[data-open]"),s=e.target.closest("[data-save]");
+  if(o)openPlace(+o.dataset.open);
+  if(s)toggleSave(+s.dataset.save);
+});
+function toggleSave(id){
+  var i=saved.indexOf(id);if(i>=0)saved.splice(i,1);else saved.push(id);
+  persist();updateCount();render();
+}
+function updateCount(){$("tripCount").textContent=saved.length}
+updateCount();
+
+/* ---------- PLACE DIALOG ---------- */
+function openPlace(id){
+  var d=RAW[id],r=REG[d.reg];
+  var near=RAW.filter(function(x){return x.reg===d.reg&&x.id!==id}).slice(0,4);
+  var on=saved.indexOf(id)>=0;
+  var qn=encodeURIComponent(d.name.split("(")[0].trim()+" Pakistan");
+  $("dlgBody").style.setProperty("--rc",r.c);
+  $("dlgBody").innerHTML='<button class="x" type="button" id="dx" aria-label="Close">×</button>'+
+   '<h3 id="dlgTitle">'+esc(d.name)+'</h3><div class="tags"><span class="tag">'+esc(r.n)+'</span><span class="tag">'+esc(d.cat)+'</span><span class="tag">Best: '+esc(d.season)+'</span><span class="tag">'+daysLabel(d.days)+'</span></div>'+
+   '<p>'+esc(d.desc)+'</p>'+
+   '<div class="acts"><button class="btn'+(on?" saved":"")+'" id="dsave" type="button">'+(on?"Saved to trip":"Save to my trip")+'</button>'+
+   '<a class="btn pri" rel="sponsored noopener" target="_blank" href="https://www.booking.com/searchresults.html?ss='+qn+'" data-affiliate="booking">Find hotels</a>'+
+   '<a class="btn" rel="noopener" target="_blank" href="https://www.google.com/maps/search/?api=1&query='+qn+'">Open map</a></div>'+
+   (near.length?'<div class="near"><p class="fine" style="margin:.8rem 0 .2rem">More in '+esc(r.n)+':</p>'+near.map(function(n){return '<a href="#" data-near="'+n.id+'">'+esc(n.name)+'</a>'}).join("")+'</div>':"")+
+   '<p class="fine">Hotel links are affiliate links and may earn us a commission. Conditions, access and opening seasons change; confirm locally before travelling.</p>';
+  var dlg=$("dlg");if(!dlg.open)dlg.showModal();
+  $("dx").onclick=function(){dlg.close()};
+  $("dsave").onclick=function(){toggleSave(id);openPlace(id)};
+  $("dlgBody").querySelectorAll("[data-near]").forEach(function(a){a.onclick=function(ev){ev.preventDefault();openPlace(+a.dataset.near)}});
+}
+$("dlg").addEventListener("click",function(e){if(e.target===this)this.close()});
+
+/* ---------- TRIP DIALOG ---------- */
+function openTrip(){
+  var items=saved.map(function(i){return RAW[i]});
+  var total=items.reduce(function(a,d){return a+daysNum(d.days)},0);
+  var body='<button class="x" type="button" id="tx" aria-label="Close">×</button><h3 id="tripTitle">My trip</h3>';
+  if(!items.length){body+='<p class="fine" style="margin-top:.8rem">Nothing saved yet. Use Save on any destination to start your trip list.</p>'}
+  else{
+    body+='<p style="margin:.4rem 0 0;color:var(--ink2)">'+items.length+' places, about '+total+' days of sightseeing (travel time not included).</p><ul class="tripList">'+
+     items.map(function(d){return '<li><span><b>'+esc(d.name)+'</b><br><span class="fine">'+esc(REG[d.reg].n)+' · '+daysLabel(d.days)+'</span></span><button class="btn" data-rm="'+d.id+'" type="button">Remove</button></li>'}).join("")+'</ul>'+
+     '<div class="acts"><button class="btn pri" id="copyTrip" type="button">Copy list</button><button class="btn" id="clearTrip" type="button">Clear all</button></div><div class="fine" id="copyMsg" aria-live="polite"></div>';
+  }
+  $("tripBody").innerHTML=body;
+  var dlg=$("tripDlg");if(!dlg.open)dlg.showModal();
+  $("tx").onclick=function(){dlg.close()};
+  $("tripBody").querySelectorAll("[data-rm]").forEach(function(b){b.onclick=function(){toggleSave(+b.dataset.rm);openTrip()}});
+  if($("copyTrip"))$("copyTrip").onclick=function(){
+    var txt="My Pakistan trip:\n"+items.map(function(d){return "- "+d.name+" ("+REG[d.reg].n+", "+daysLabel(d.days)+")"}).join("\n");
+    var done=function(){$("copyMsg").textContent="Copied to clipboard."};
+    try{navigator.clipboard.writeText(txt).then(done,function(){$("copyMsg").textContent="Copy failed. Select and copy the list manually."})}catch(e){$("copyMsg").textContent="Copy is not available in this browser."}
+  };
+  if($("clearTrip"))$("clearTrip").onclick=function(){saved=[];persist();updateCount();render();openTrip()};
+}
+$("openTrip").onclick=openTrip;
+$("tripDlg").addEventListener("click",function(e){if(e.target===this)this.close()});
+
+/* ---------- ITINERARIES ---------- */
+var tabs=$("tabs");
+ITIN.forEach(function(it,i){
+  var b=document.createElement("button");b.type="button";b.className="tab";b.setAttribute("role","tab");
+  b.setAttribute("aria-selected",i===0?"true":"false");b.textContent=it.t;
+  b.onclick=function(){tabs.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-selected","false")});b.setAttribute("aria-selected","true");showItin(i)};
+  tabs.appendChild(b);
+});
+function showItin(i){
+  var it=ITIN[i];
+  $("itin").innerHTML='<div><h3>'+esc(it.t)+'</h3><p style="color:var(--ink2)">'+esc(it.s)+'</p><ol class="days" style="list-style:none">'+
+   it.steps.map(function(s,k){return '<li><b>Day '+(k+1)+': '+esc(s[0])+'</b><br>'+esc(s[1])+'</li>'}).join("")+'</ol></div>'+
+   '<aside><div class="facts"><dl><dt>Length</dt><dd>'+esc(it.d)+'</dd><dt>Best for</dt><dd>'+esc(it.who)+'</dd><dt>Best time</dt><dd>'+esc(it.when)+'</dd></dl>'+
+   '<p style="margin:1rem 0 0"><a class="btn pri" href="#budget">Estimate the cost</a></p></div></aside>';
+}
+showItin(0);
+
+/* ---------- HOTELS ---------- */
+$("hotelRows").innerHTML=HOTELS.map(function(h){
+  return '<tr><td>'+esc(h[0])+'</td><td>'+h[1]+'</td><td>'+h[2]+'</td><td>'+h[3]+'</td><td>'+esc(h[4])+'</td>'+
+   '<td><a rel="sponsored noopener" target="_blank" data-affiliate="booking" href="https://www.booking.com/searchresults.html?ss='+encodeURIComponent(h[5]+" Pakistan")+'">View stays</a></td></tr>'}).join("");
+
+/* ---------- BUDGET ---------- */
+function calc(){
+  var n=Math.max(1,+$("bTrav").value||1),d=Math.max(1,+$("bDays").value||1),st=+$("bStyle").value,tr=$("bTrans").value;
+  var stay=st*n*d,transport;
+  if(tr==="pub")transport=2500*n*d;else if(tr==="car")transport=12000*d;else transport=22000*d;
+  var total=Math.round((stay+transport)*1.1/1000)*1000;
+  $("bTotal").textContent="PKR "+total.toLocaleString("en-US");
+  $("bPer").textContent="About PKR "+Math.round(total/n/1000*1000).toLocaleString("en-US")+" per person over "+d+" days";
+}
+["bTrav","bDays","bStyle","bTrans"].forEach(function(id){$(id).addEventListener("input",calc)});
+calc();
+
+/* ---------- NEWSLETTER ---------- */
+/* Connect this to Mailchimp, ConvertKit, Brevo, etc. before launch. */
+$("subscribe").onclick=function(){
+  var v=$("email").value.trim();
+  $("newsMsg").textContent=/^\S+@\S+\.\S+$/.test(v)?"Thanks! Subscription will be active once the email service is connected.":"Enter a valid email address.";
+};
+
+render();
+</script>
+</body>
+</html>
